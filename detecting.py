@@ -9,9 +9,9 @@ cap.set(4, 480)
 
 # List of models
 model_paths = [
-    r'M:/mask/detect/train/weights/best.pt',
-    r'M:/mask/detect/weapondetction1_train/weights/best.pt',
-    r'M:/mask/detect/weapondetction1_train/weights/best.pt'
+     'detect/train/weights/best.pt',
+     'detect/weapondetction1_train/weights/best.pt',
+     'detect/weapondetction1_train/weights/best.pt'
 ]
 
 # Load models
