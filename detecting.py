@@ -9,9 +9,11 @@ cap.set(4, 480)
 
 # List of models
 model_paths = [
-     'detect/train/weights/best.pt',
-     'detect/weapondetction1_train/weights/best.pt',
-     'detect/weapondetction1_train/weights/best.pt'
+    'detect/train/weights/best.pt',
+    'detect/weapondetction1_train/weights/best.pt',
+    'detect/weapondetction1_train/weights/best.pt',
+    'detect/fire_smoke_train/weights/best.pt'
+
 ]
 
 # Load models
@@ -21,7 +23,8 @@ models = [YOLO(path) for path in model_paths]
 classNames_list = [
     ["masked", "person", "masked"],  # Update with the correct class names for model 1
     ["weapon"],  # Update with the correct class names for model 2
-    ["weapon"]   # Update with the correct class names for model 3
+    ["weapon"],  # Update with the correct class names for model 3
+    ["fire","smoke"]   # Update with the correct class names for model 4
 ]
 
 # Initialize accuracy counters
@@ -64,6 +67,8 @@ while True:
                 elif classNames[cls] == "person":
                     color = (255, 0, 0)  # Blue for person
                 elif classNames[cls] == "weapon":
+                    color = (210, 4, 45)  # Red for weapon
+                elif classNames[cls] == "fire":
                     color = (0, 0, 255)  # Red for weapon
                 else:
                     color = (0, 0, 0)  # Default to black

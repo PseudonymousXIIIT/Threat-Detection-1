@@ -9,12 +9,12 @@ cap.set(4, 480)
 
 # Model
 # model = YOLO(r'M:/mask/detect/train/weights/best.pt')
-model = YOLO(r'M:/mask/detect/weapondetction1_train/weights/best.pt')
+model = YOLO(r'M:/mask/detect/fire_smoke_train/weights/best.pt')
 # model = YOLO(r'M:/mask/yolo-Weights/yolov8n.pt')
 
 # Object classes
-classNames = ["masked", "unmasked", "masked"]
-classNames = ["weapon"]
+classNames = ["fire", "smoke"]
+# classNames = ["weapon"]
 
 
 # Initialize accuracy counters
@@ -49,16 +49,20 @@ while True:
             thickness = 2
 
             # Set the rectangle color based on class label
-            if classNames[cls] == "masked":
+            if classNames[cls] == "fire":
                 color = (0, 0, 255)  # Red for masked person
-                total_correct += 1  # Increment correct count for masked person
-            else:
-                color = (255, 0, 0)  # Blue for unmasked person
+                # total_correct += 1  # Increment correct count for masked person
+                cv2.rectangle(img, (x1, y1), (x2, y2), color, 3)
+                cv2.putText(img, classNames[cls], org, font, fontScale, color, thickness)
+            # else:
+                # color = (255, 255, 0)  # Blue for unmasked person
+                # cv2.rectangle(img, (x1, y1), (x2, y2), color, 3)
+                # cv2.putText(img, classNames[cls], org, font, fontScale, color, thickness)
 
             total_predictions += 1  # Increment total predictions count
 
-            cv2.rectangle(img, (x1, y1), (x2, y2), color, 3)
-            cv2.putText(img, classNames[cls], org, font, fontScale, color, thickness)
+            # cv2.rectangle(img, (x1, y1), (x2, y2), color, 3)
+            # cv2.putText(img, classNames[cls], org, font, fontScale, color, thickness)
 
     # Calculate accuracy
     accuracy = (total_correct / total_predictions) * 100 if total_predictions > 0 else 0
