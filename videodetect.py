@@ -3,7 +3,15 @@ import cv2
 import math
 
 # Start webcam
+
+# cap = cv2.VideoCapture(0)
+
+# cap = cv2.VideoCapture('Explosion.mp4')
+# cap = cv2.VideoCapture('Tian.mp4')
+
 cap = cv2.VideoCapture(0)
+# cap = cv2.VideoCapture('Gun.mp4')
+# cap = cv2.VideoCapture('Brandon.mp4')
 cap.set(3, 640)
 cap.set(4, 480)
 
