@@ -9,7 +9,7 @@ def print_results(model_path):
     Q = deque(maxlen=128)
     
     # Open the webcam
-    vs = cv2.VideoCapture(0)
+    vs = cv2.VideoCapture('FIGHT_PRACTICE.mp4')
 
     while True:
         # Read a frame from the webcam
